@@ -37,12 +37,11 @@ import com.framework.utils.Reporter;
 
 
 public class SeleniumBase extends Reporter implements Browser, Element  {
-	protected Actions act;
+	public Actions act;
 
-	public static String projectId;
-	public static String auctionRef;
 	
-	protected String getAttribute(WebElement ele, String attributeValue) {
+	
+	public String getAttribute(WebElement ele, String attributeValue) {
 		String val = "";
 		try {
 			val = ele.getAttribute(attributeValue);
@@ -55,7 +54,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		return val;
 	}
 
-	protected void moveToElement(WebElement ele) {
+	public void moveToElement(WebElement ele) {
 		try {
 			act = new Actions(getDriver());
 			act.moveToElement(ele).perform();
@@ -64,7 +63,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		}
 	}
 	
-	protected void dragAndDrop(WebElement eleSoutce, WebElement eleTarget) {
+	public void dragAndDrop(WebElement eleSoutce, WebElement eleTarget) {
 		try {
 			act = new Actions(getDriver());
 			act.dragAndDrop(eleSoutce, eleTarget).perform();
@@ -73,7 +72,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		}
 	}
 
-	protected void contextClick(WebElement ele) {
+	public void contextClick(WebElement ele) {
 		try {
 			act = new Actions(getDriver());
 			act.contextClick(getWait().until(ExpectedConditions.elementToBeClickable(ele))).perform();
@@ -82,7 +81,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		}
 	}
 
-	protected void hoverAndClick(WebElement ele) {
+	public void hoverAndClick(WebElement ele) {
 		try {
 			act = new Actions(getDriver());
 			act.moveToElement(getWait().until(ExpectedConditions.elementToBeClickable(ele))).pause(5000).click().perform();
@@ -91,7 +90,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		}
 	}
 
-	protected void doubleTap(WebElement ele) {
+	public void doubleTap(WebElement ele) {
 		try {
 			act = new Actions(getDriver());
 			act.click(getWait().until(ExpectedConditions.elementToBeClickable(ele))).click().perform();
@@ -101,7 +100,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 		}
 	}
 
-	protected void doubleClick(WebElement ele) {
+	public void doubleClick(WebElement ele) {
 		try {
 			act = new Actions(getDriver());
 			act.doubleClick(getWait().until(ExpectedConditions.elementToBeClickable(ele))).perform();
@@ -254,7 +253,7 @@ public class SeleniumBase extends Reporter implements Browser, Element  {
 	}
 
 	public void clickWithNoSnap(WebElement ele) {
-		String text = ele.getText();
+		
 		try {
 			getWait().until(ExpectedConditions.elementToBeClickable(ele));
 			ele.click();

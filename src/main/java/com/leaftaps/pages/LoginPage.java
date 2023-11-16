@@ -1,7 +1,5 @@
 package com.leaftaps.pages;
 
-import org.openqa.selenium.WebElement;
-
 import com.framework.selenium.api.design.Locators;
 import com.framework.testng.api.base.ProjectSpecificMethods;
 
